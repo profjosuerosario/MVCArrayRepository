@@ -662,7 +662,7 @@ Cada elemento possui uma função.
 
 ---
 
-## 24. Exercício de revisão
+## 24. Perguntas de revisão
 
 Responda às perguntas abaixo antes de avançar.
 
