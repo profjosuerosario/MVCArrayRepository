@@ -1,0 +1,22 @@
+{
+  "name": "mvcarrayrepository",
+  "version": "1.0.0",
+  "description": "Aprender a usar:\r - Array\r - Typescript com POO\r - Padrão repository",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/profjosuerosario/MVCArrayRepository.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/profjosuerosario/MVCArrayRepository/issues"
+  },
+  "homepage": "https://github.com/profjosuerosario/MVCArrayRepository#readme",
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}

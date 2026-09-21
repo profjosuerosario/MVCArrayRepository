@@ -517,44 +517,31 @@ Você acabou de executar seu primeiro programa TypeScript.
 
 ---
 
-## 18. Entendendo todo o processo
+## 18. Criando a pasta Dist
 
-Vamos reunir tudo o que fizemos.
+A pasta dist será reponsável por conter o arquivo javascript compilado que podera ser executado no node.
 
-Primeiro criamos:
+Crie a pasta dist na raiz do projeto
 
-```text
-index.ts
+Abra o arquivos tsconfig.json e descomente as linha abaixo:
+
+```
+  "rootDir": "./src",
+  "outDir": "./dist",
 ```
 
-Depois compilamos:
+Estas linha configuram respectivamente o local onde o node vai procurar os arquivos fontes e o locl onde ele devera criar o arquivo js compilado.
 
+Faça uma nova compilação dos seu codigo
 ```bash
 npx tsc
 ```
 
-O compilador produziu JavaScript.
-
-Finalmente executamos:
-
+Execute novamente a partir da pasta dist
 ```bash
-node src/index.js
+node dist/index.js
 ```
 
-O processo completo é:
-
-```mermaid
-flowchart TD
-    A["index.ts"] --> B["npx tsc"]
-    B --> C["TypeScript Compiler"]
-    C --> D["index.js"]
-    D --> E["node"]
-    E --> F["Programa executado"]
-```
-
-Essa é uma das ideias mais importantes deste primeiro tutorial.
-
----
 
 ## 19. Primeiro teste
 
@@ -651,12 +638,13 @@ flowchart TD
 
     A --> B["node_modules/"]
     A --> C["src/"]
-    A --> D["package.json"]
-    A --> E["package-lock.json"]
-    A --> F["tsconfig.json"]
+    A --> D["dist/"]
+    A --> E["package.json"]
+    A --> F["package-lock.json"]
+    A --> G["tsconfig.json"]
 
-    C --> G["index.ts"]
-    C --> H["index.js"]
+    C --> H["index.ts"]
+    D --> I["index.js"]
 ```
 
 Cada elemento possui uma função.
@@ -664,96 +652,13 @@ Cada elemento possui uma função.
 | Arquivo/Pasta | Função |
 |---|---|
 | `src/` | código-fonte do projeto |
+| `dist/` | código compilado do projeto |
 | `index.ts` | nosso código TypeScript |
 | `index.js` | JavaScript produzido pela compilação |
 | `node_modules/` | dependências instaladas |
 | `package.json` | configuração do projeto npm |
 | `package-lock.json` | informações das dependências instaladas |
 | `tsconfig.json` | configuração do compilador TypeScript |
-
----
-
-## 23. O que precisamos lembrar?
-
-Neste primeiro tutorial, existem alguns conceitos importantes.
-
-### 1. Temos um projeto
-
-Criamos uma pasta:
-
-```text
-estudos-typescript
-```
-
-### 2. Temos um projeto npm
-
-Inicializamos o projeto com:
-
-```bash
-npm init -y
-```
-
-Isso criou:
-
-```text
-package.json
-```
-
-### 3. Instalamos o TypeScript
-
-Utilizamos:
-
-```bash
-npm install --save-dev typescript
-```
-
-### 4. Configuramos o TypeScript
-
-Criamos:
-
-```bash
-npx tsc --init
-```
-
-Isso criou:
-
-```text
-tsconfig.json
-```
-
-### 5. Escrevemos código TypeScript
-
-Criamos:
-
-```text
-src/index.ts
-```
-
-### 6. Compilamos
-
-Utilizamos:
-
-```bash
-npx tsc
-```
-
-### 7. Executamos JavaScript
-
-Utilizamos o Node.js:
-
-```bash
-node arquivo.js
-```
-
-O ciclo completo é:
-
-```mermaid
-flowchart TD
-    A["Escrever TypeScript<br/>.ts"] --> B["Compilar<br/>npx tsc"]
-    B --> C["Gerar JavaScript<br/>.js"]
-    C --> D["Executar<br/>node"]
-    D --> E["Obter resultado"]
-```
 
 ---
 
@@ -801,56 +706,4 @@ Resposta:
 tsconfig.json
 ```
 
-### 6. O Node.js executa diretamente nosso arquivo `.ts` neste fluxo?
-
-Não.
-
-O fluxo estudado neste tutorial é:
-
-```mermaid
-flowchart LR
-    A[".ts"] --> B["Compilação"]
-    B --> C[".js"]
-    C --> D["Node.js"]
-```
-
 ---
-
-## Checklist
-
-Antes de avançar para o próximo tutorial, confirme:
-
-- [ ] Node.js instalado.
-- [ ] npm funcionando.
-- [ ] VS Code instalado.
-- [ ] Projeto `estudos-typescript` criado.
-- [ ] `package.json` criado.
-- [ ] TypeScript instalado.
-- [ ] `tsconfig.json` criado.
-- [ ] Pasta `src` criada.
-- [ ] Arquivo `index.ts` criado.
-- [ ] Primeiro código TypeScript escrito.
-- [ ] Projeto compilado com `npx tsc`.
-- [ ] JavaScript executado com `node`.
-- [ ] Exercício realizado.
-- [ ] Desafio realizado.
-- [ ] Perguntas de revisão respondidas.
-
----
-
-## Próximo tutorial
-
-No próximo tutorial vamos começar a trabalhar mais diretamente com TypeScript.
-
-Vamos compreender melhor o código que estamos escrevendo e continuar praticando o ciclo:
-
-```mermaid
-flowchart LR
-    A["Código"] --> B["Compilação"]
-    B --> C["JavaScript"]
-    C --> D["Execução"]
-```
-
-Ainda não vamos trabalhar com arrays.
-
-Primeiro vamos construir uma base mínima para que, posteriormente, o estudo de arrays seja mais fácil de compreender.
